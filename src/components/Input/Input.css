@@ -1,0 +1,29 @@
+.input-label {
+    color: #313037;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 700;
+    font-family: 'Inter Regular';
+}
+
+.input-default {
+    width: 480px;
+    height: 56px;
+    border: 1px solid #E7E7E7;
+    padding-left: 20px;
+    border-radius: 1px;
+}
+
+.input-default::placeholder {
+    font-family: 'Inter Regular';
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Inter Regular";
+    src: url("./../../fonts/Inter-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

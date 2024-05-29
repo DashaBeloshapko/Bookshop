@@ -1,0 +1,92 @@
+.header_wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1120px;
+    height: 104px;
+    margin: auto;
+    border-bottom: 1px solid #E7E7E7;
+}
+
+.header_Title {
+    font-family: "BebasNeue";
+    font-size: 48px;
+    line-height: 64px;
+    font-weight: 700;
+    color: #313037;
+}
+
+.header-search-wrap {
+    position: relative;
+}
+
+.header-search {
+    width: 542px;
+    height: 56px;
+    border: 1px solid #E7E7E7;
+    padding-left: 20px;
+}
+
+.header-search::placeholder {
+    color: #A8A8A8;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+    font-family: 'Inter Regular';
+}
+
+.header-search-but {
+    width: 24px;
+    height: 24px;
+    background-image: url(./../../images/Search-Books.svg);
+    background-size: cover;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.header_icon-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 184px;
+    height: 56px;
+}
+
+.header_icon-but {
+    width: 56px;
+    height: 56px;
+    border: none;
+    background-color: transparent;
+    background-size: cover;
+}
+
+.header_icon-heart {
+    background-image: url(./../../images/heart-header-books.svg);
+}
+
+.header_icon-bag {
+    background-image: url(./../../images/bag-header-books.svg);
+}
+
+.header_icon-man {
+    background-image: url(./../../images/man-header-books.svg);
+}
+
+@font-face {
+    font-family: "BebasNeue";
+    src: url("./../../fonts/BebasNeue-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Inter Regular";
+    src: url("./../../../src/fonts/Inter-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

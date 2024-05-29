@@ -1,0 +1,93 @@
+.wrapSignIn {
+    width: 544px;
+    height: 480px;
+    margin: auto;
+    margin-top: 196px;
+    border: 1px solid #E7E7E7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 205px;
+}
+
+.wrapButHead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 72px;
+    border-bottom: 1px solid #E7E7E7;
+}
+
+.sign_but {
+    width: 239px;
+    height: 72px;
+    border: none;
+    background-color: transparent;
+    font-family: 'BebasNeue';
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.sign_but-signin {
+    color: #313037;
+    border-bottom: 2px solid #313037;
+}
+
+.sign_but-signup {
+    color: #A8A8A8;
+}
+
+.spanSignIn {
+    color: #313037;
+    font-family: 'Inter Regular';
+    font-size: 14px;
+    line-height: 32px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.spanSignIn-link {
+    text-decoration: none;
+    width: 92%;
+}
+
+.butSign {
+    width: 92%;
+    margin-top: 40px;
+    height: 56px;
+    background-color: #313037;
+    color: #FFFFFF;
+    font-family: 'BebasNeue';
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 700;
+    border-radius: 0;
+}
+
+.wrapResetPassword {
+    width: 544px;
+    height: 324px;
+    margin: auto;
+    margin-top: 274px;
+    border: 1px solid #E7E7E7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 205px;
+}
+
+@font-face {
+    font-family: "BebasNeue";
+    src: url("./../../fonts/BebasNeue-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Inter Regular";
+    src: url("./../../../src/fonts/Inter-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

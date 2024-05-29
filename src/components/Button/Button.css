@@ -1,0 +1,49 @@
+.primary {
+    background-color: blue;
+    color: white;
+}
+
+.secondary {
+    background-color: rgb(218, 214, 214);
+    color: black;
+}
+
+.secondary2 {
+    background-color: transparent;
+    color: red;
+}
+
+.button-disabled-sec {
+    background-color: rgb(143, 141, 141);
+}
+
+.button-default {
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 19px;
+    border: none;
+}
+
+.button-disabled-sec2 {
+    border: 2px solid rgb(143, 141, 141);
+}
+
+.button-disabled {
+    opacity: 0.5;
+}
+
+.button-click {
+    background-color: gray;
+}
+
+.wrapForButtons {
+    display: grid;
+    grid-template-rows: repeat(3, 60px);
+    grid-template-columns: repeat(3, 120px);
+}
+
+.button3-onClick {
+    color: gray;
+}
