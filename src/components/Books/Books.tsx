@@ -29,7 +29,7 @@ const Books = () => {
         <div className="books_main-wrap">
             <h1 className="books_main-title">New Releases Books</h1>
             <div className="books_wrap">
-                {books.map((el) => <Book image={el.image} title={el.title} subtitle={el.subtitle} price={el.price} />)}
+                {books.map((el) => <Book image={el.image} title={el.title} subtitle={el.subtitle} price={el.price} isbn13={el.isbn13} />)}
             </div>
         </div>
     )

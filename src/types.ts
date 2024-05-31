@@ -67,18 +67,10 @@ export interface ImageType {
     file?: File;
 }
 
-interface ICreatPost {
-    image: File | undefined,
-    text: string,
-    lesson_num: number,
-    title: string,
-    description: string,
-}
-
 interface IBook {
     title: string,
     subtitle: string,
-    isbn13?: string,
+    isbn13: string,
     price: string,
     image: string,
     url?: string,
@@ -87,10 +79,13 @@ interface IBook {
 interface IBooksState {
     books: IBook[],
     limit: number,
+    bigBook: IBigBook,
+    cart: ICart[],
 }
 
 interface IBooksInfo {
     limit: number,
+    search?: string | null,
 }
 
 interface IBooksResponse {
@@ -101,6 +96,40 @@ interface IBooksResponse {
 interface IStoreStateBooks {
     books: IBooksState,
     limit: number,
+    cart: ICartState,
+}
+
+interface IBigBook {
+    error?: string;
+    title: string;
+    subtitle?: string;
+    authors: string;
+    publisher?: string;
+    isbn10?: number;
+    isbn13: number;
+    pages?: number;
+    year?: number;
+    rating?: number;
+    desc?: string;
+    price: number;
+    image: string;
+    url?: string;
+    pdf?: {
+        [key: string]: string;
+    };
+}
+
+interface ICart {
+    isbn13: number;
+    title: string;
+    price: number;
+    authors: string;
+    image: string;
+    quan: number;
+}
+
+interface ICartState {
+    cart: ICart[];
 }
 
 export type {
@@ -111,12 +140,14 @@ export type {
     IActivationInfo,
     ISignInUserInfo,
     IUserState,
-    ICreatPost,
     IBook,
     IBooksState,
     IBooksInfo,
     IBooksResponse,
     IStoreStateBooks,
+    IBigBook,
+    ICart,
+    ICartState,
 }
 
 

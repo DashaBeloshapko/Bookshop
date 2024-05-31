@@ -1,3 +1,6 @@
 export const SET_BOOKS = 'SET_BOOKS'
 export const LOAD_BOOKS = 'LOAD_BOOKS'
 export const LIMIT_BOOKS = 'LIMIT_BOOKS'
+export const LOAD_BIG_BOOK = 'LOAD_BIG_BOOK'
+export const SET_BIG_BOOK = 'SET_BIG_BOOK'
+export const ADD_TO_CART = 'ADD_TO_CART'

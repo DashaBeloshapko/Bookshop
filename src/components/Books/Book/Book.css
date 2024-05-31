@@ -62,6 +62,181 @@
     background-size: cover;
 }
 
+.book-link {
+    text-decoration: none;
+}
+
+.bigBook_wrap {
+    width: 100%;
+    max-width: 1120px;
+    margin: auto;
+}
+
+.bigBook_header {
+    width: 100%;
+    height: 184px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 72px;
+}
+
+.bigBook_header-link {
+    background-image: url(./../../../images/Icon-Arrow-Left-books.svg);
+    width: 42px;
+    height: 14.01px;
+}
+
+.bigBook_header-title {
+    color: #313037;
+    font-family: 'BebasNeue';
+    font-size: 56px;
+    line-height: 64px;
+    font-weight: 700;
+}
+
+.bigBook_main-wrap {
+    width: 100%;
+    height: 472px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.biBbook_image-wrap {
+    width: 544px;
+    background-color: #FEE9E2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.biBbook_main-image {
+    width: 300px;
+    height: 350px;
+}
+
+.biBbook_main-data {
+    width: 448px;
+    border-top: 1px solid #E7E7E7;
+    display: flex;
+    flex-direction: column;
+}
+
+.bigBook_data-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bigBook_data {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bigBook_data-price {
+    color: #313037;
+    font-family: 'BebasNeue';
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 700;
+}
+
+.bigBook_data-pricestars {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.bigBook_data-stars {
+    width: 112px;
+    height: 16px;
+    background-image: url(./../../../images/stars-Books.svg);
+    background-size: cover;
+}
+
+.bigBook_data-span-left {
+    color: #A8A8A8;
+    font-family: 'Inter Regular';
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 400;
+}
+
+.bigBook_data-span-right {
+    color: #313037;
+    font-family: 'Inter Regular';
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 400;
+}
+
+.bigBook_main-button {
+    width: 100%;
+    height: 56px;
+    background-color: #313037;
+    color: #FFFFFF;
+    font-family: 'BebasNeue';
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 700;
+    margin-top: 80px;
+    border-radius: 0;
+}
+
+.bigBook_main-span {
+    text-align: center;
+    color: #313037;
+    font-family: 'Inter Regular';
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-top: 30px;
+}
+
+.bigBook_description {
+    width: 100%;
+    color: #313037;
+    font-family: 'Inter Regular';
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 400;
+    margin-top: 48px;
+}
+
+.bigBook_footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 48px;
+    margin-bottom: 72px;
+}
+
+.bigBook_footer-icons-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.bigBook_footer-icon {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+}
+
+.bigBook-facebook {
+    background-image: url(./../../../images/facebook-books.svg);
+}
+
+.bigBook-twitter {
+    background-image: url(./../../../images/twitter-books.svg);
+}
+
+.bigBook-more {
+    background-image: url(./../../../images/More-Horizontal-books.svg);
+}
+
 @font-face {
     font-family: "BebasNeue";
     src: url("./../../../fonts/BebasNeue-Regular.ttf") format("truetype");

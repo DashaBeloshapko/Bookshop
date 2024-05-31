@@ -1,10 +1,14 @@
 
-import { IBook, IBooksState } from "../../types"
-import { LIMIT_BOOKS, LOAD_BOOKS, SET_BOOKS } from "../actionTypes"
+import { BigBook } from "../../components/Books"
+import { IBigBook, IBook, IBooksState, ICart } from "../../types"
+import { ADD_TO_CART, LIMIT_BOOKS, LOAD_BOOKS, SET_BIG_BOOK, SET_BOOKS } from "../actionTypes"
 
 const initialState = {
     books: [] as IBook[],
     limit: 6,
+    bigBook: {} as IBigBook,
+    cart: [] as ICart[],
+    quan: 1,
 }
 
 const booksReduser = (state: IBooksState = initialState, action: any) => {
@@ -20,6 +24,18 @@ const booksReduser = (state: IBooksState = initialState, action: any) => {
                 ...state,
                 limit: action.limit,
             })
+        }
+        case SET_BIG_BOOK: {
+            return {
+                ...state,
+                bigBook: action.bigBook,
+            };
+        }
+        case ADD_TO_CART: {
+            return {
+                ...state,
+                cart: [...state.cart, action.cart],
+            };
         }
         default: {
             return state;

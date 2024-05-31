@@ -34,6 +34,7 @@ function* signUp(action: any) {
             'Content-Type': 'application/json'
         }
     });
+    console.log(resp)
 }
 
 function* activationUser(action: any) {
@@ -58,7 +59,7 @@ function* signIn(action: any) {
         const tokens: { access: string, refresh: string } = yield resp.json()
         localStorage.setItem('access', tokens.access)
         localStorage.setItem('refresh', tokens.refresh)
-        window.location.pathname = '/posts'
+        window.location.pathname = '/books'
     }
 }
 

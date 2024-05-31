@@ -1,0 +1,46 @@
+.searchresults {
+    width: 1120px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.searchresults-title {
+    color: #313037;
+    font-family: 'BebasNeue';
+    font-size: 56px;
+    line-height: 64px;
+    font-weight: 700;
+}
+
+.searchres-wrap {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 352px);
+    column-gap: 32px;
+    grid-template-rows: repeat(4, 454px);
+    row-gap: 48px;
+}
+
+.searchresults-span {
+    color: #A8A8A8;
+    font-family: 'Inter Regular';
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-bottom: 48px;
+}
+
+@font-face {
+    font-family: "BebasNeue";
+    src: url("./../../fonts/BebasNeue-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Inter Regular";
+    src: url("./../../fonts/Inter-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
