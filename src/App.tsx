@@ -8,6 +8,7 @@ import { Footer } from './components/Footer';
 import { BigBook } from './components/Books';
 import { Cart } from './components/Cart';
 import { SearchResults } from './components/SearchResults';
+import { FavouriteBooks } from './components/FavouriteBooks';
 
 // vosyz@mailto.plus
 // qwe159asd357
@@ -23,6 +24,7 @@ function App() {
           <Route path='activate/:uid/:token' element={<SignUpActivation></SignUpActivation>} />
           <Route path='reset-password' element={<ResetPassword />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/favourite' element={<FavouriteBooks />} />
           <Route path='books'>
             <Route index element={<Books />} />
             <Route path=":isbn13"

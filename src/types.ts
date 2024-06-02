@@ -81,6 +81,7 @@ interface IBooksState {
     limit: number,
     bigBook: IBigBook,
     cart: ICart[],
+    likeBook: ILIkeBook[],
 }
 
 interface IBooksInfo {
@@ -132,6 +133,18 @@ interface ICartState {
     cart: ICart[];
 }
 
+interface ILIkeBook {
+    isbn13: number;
+    title: string;
+    price: number;
+    authors: string;
+    image: string;
+}
+
+interface ILikeBookState {
+    likeBook: ILIkeBook[],
+}
+
 export type {
     IButton,
     IInput,
@@ -148,6 +161,8 @@ export type {
     IBigBook,
     ICart,
     ICartState,
+    ILIkeBook,
+    ILikeBookState,
 }
 
 

@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom"
 import { Button } from "../../Button"
 import { useDispatch, useSelector } from "react-redux"
-import { ICart, IStoreStateBooks } from "../../../types"
+import { ICart, ILIkeBook, IStoreStateBooks } from "../../../types"
 import { useEffect } from "react"
-import { addToCart, loadBigBook } from "../../../redux/actionCreators"
+import { addToCart, likeBook, loadBigBook } from "../../../redux/actionCreators"
 
 const BigBook = () => {
     const dispatch = useDispatch()
@@ -23,6 +23,22 @@ const BigBook = () => {
             <div className="bigBook_main-wrap">
                 <div className="biBbook_image-wrap">
                     <img src={bigBook.image} className="biBbook_main-image" />
+                    <div className="heart-wrap">
+                        <button
+                            className="black-heart"
+                            onClick={() => {
+                                const favouriteBook: ILIkeBook = {
+                                    isbn13: bigBook.isbn13,
+                                    title: bigBook.title,
+                                    price: bigBook.price,
+                                    authors: bigBook.authors,
+                                    image: bigBook.image,
+                                };
+                                console.log(favouriteBook)
+                                dispatch(likeBook(favouriteBook))
+                            }}
+                        />
+                    </div>
                 </div>
                 <div className="biBbook_main-data">
                     <div className="bigBook_data-wrap">

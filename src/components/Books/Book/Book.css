@@ -108,6 +108,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.heart-wrap {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 3px;
+    right: 3px;
+}
+
+.red-heart {
+    background-image: url(./../../../images/сердце\ красное-books\ \(1\).svg);
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    border: none;
+    background-color: transparent;
+}
+
+.black-heart {
+    background-image: url(./../../../images/сердце\ черное-books\ \(2\).svg);
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    border: none;
+    background-color: transparent;
 }
 
 .biBbook_main-image {

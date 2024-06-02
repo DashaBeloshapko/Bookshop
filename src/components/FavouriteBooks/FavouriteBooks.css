@@ -1,11 +1,12 @@
-.cart_wrap {
+.favor-wrap {
     width: 100%;
     max-width: 1120px;
+    display: flex;
+    flex-direction: column;
     margin: auto;
-    margin-top: 72px;
 }
 
-.cart_header {
+.favor_header {
     width: 100%;
     height: 184px;
     display: flex;
@@ -13,13 +14,13 @@
     margin-top: 72px;
 }
 
-.cart_header-link {
+.favor_header-link {
     background-image: url(./../../images/Icon-Arrow-Left-books.svg);
     width: 42px;
     height: 14.01px;
 }
 
-.cart_header-title {
+.favor_header-title {
     color: #313037;
     font-family: 'BebasNeue';
     font-size: 56px;
@@ -27,41 +28,44 @@
     font-weight: 700;
 }
 
-.cartitem_wrap {
+.favor {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 48px;
 }
 
-.cartitem {
+.favor-card {
+    width: 100%;
+    height: 192.18px;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
-.cartitem_image-wrap {
+.favor_image-wrap {
     width: 256px;
-    height: 192.18px;
     background-color: #D7E4FD;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.cartitem_image {
+.favor_image {
     width: 163.9px;
     height: 191.46px;
 }
 
-.cartitem_data-wrap {
-    width: 446px;
+.favor_data-wrap {
+    width: 500px;
+    height: 120px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
-.cartitem_data-title {
+.favor_data-title {
     color: #313037;
     font-family: 'BebasNeue';
     font-size: 24px;
@@ -70,7 +74,11 @@
     margin: 0;
 }
 
-.cartitem_data-authors {
+.favor_data-title:hover {
+    font-size: 30px;
+}
+
+.favor_data-authors {
     color: #A8A8A8;
     font-family: 'Inter Regular';
     font-size: 16px;
@@ -78,51 +86,45 @@
     font-weight: 400;
 }
 
-.cartitem_data-counter {
-    height: 56px;
+.favor_data-footer {
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.cartitem-counter-but {
-    width: 56px;
-    height: 56px;
+.favor_data-price {
     color: #313037;
     font-family: 'BebasNeue';
     font-size: 24px;
     line-height: 32px;
     font-weight: 700;
-    border: none;
-    background-color: transparent;
+    margin: 0;
 }
 
-.cartitem_price {
-    color: #313037;
-    font-family: 'BebasNeue';
-    font-size: 40px;
-    line-height: 60px;
-    font-weight: 700;
+.favor_data-stars {
+    width: 112px;
+    height: 16px;
+    background-image: url(./../../images/stars-Books.svg);
+    background-size: cover;
 }
 
-.cartitem-close-but {
-    width: 56px;
-    height: 56px;
-    background-image: url(../../images/delete-books.svg);
+.heart-red {
+    background-image: url(./../../images/сердце\ красное-books\ \(1\).svg);
+    width: 24px;
+    height: 24px;
     background-size: cover;
     border: none;
     background-color: transparent;
 }
 
-.cartitem-close-but:hover {
-    border: 1px solid #313037;
+.heart-red:hover {
+    background-image: url(./../../images/сердце\ черное-books\ \(2\).svg);
 }
 
-.cartitem-LINK {
+.favor-LINK {
     text-decoration: none;
-}
-
-.cartitem_data-title:hover {
-    font-size: 30px;
 }
 
 @font-face {

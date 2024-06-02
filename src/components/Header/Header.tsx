@@ -28,7 +28,7 @@ const Header = () => {
                 <button className='header-search-but' onClick={clickSearch}></button>
             </div>
             <div className='header_icon-wrap'>
-                <button className='header_icon-but header_icon-heart'></button>
+                <Link to='/favourite'><button className='header_icon-but header_icon-heart'></button></Link>
                 <Link to='/cart'><button className='header_icon-but header_icon-bag'></button></Link>
                 <button className='header_icon-but header_icon-man'></button>
             </div>

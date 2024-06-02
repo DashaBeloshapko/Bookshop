@@ -1,6 +1,6 @@
 import { put, takeEvery } from "redux-saga/effects";
-import { IBigBook, IBook, IBooksInfo, IBooksResponse, ICart, } from "../../types";
-import { ADD_TO_CART, LIMIT_BOOKS, LOAD_BIG_BOOK, LOAD_BOOKS, SET_BIG_BOOK, SET_BOOKS } from "../actionTypes";
+import { IBigBook, IBook, IBooksInfo, IBooksResponse, ICart, ILIkeBook, } from "../../types";
+import { ADD_TO_CART, LIKE_BOOK, LIMIT_BOOKS, LOAD_BIG_BOOK, LOAD_BOOKS, MINUS_QUAN, PLUS_QUAN, REMOVE_FROM_CART, REMOVE_FROM_LIKE_BOOK, SET_BIG_BOOK, SET_BOOKS } from "../actionTypes";
 
 const setBooks = (books: IBook[]) => ({
     type: SET_BOOKS,
@@ -32,6 +32,31 @@ const addToCart = (cart: ICart) => ({
     cart,
 });
 
+const likeBook = (likeBook: ILIkeBook) => ({
+    type: LIKE_BOOK,
+    likeBook,
+})
+
+const removeFromCart = (isbn13: number) => ({
+    type: REMOVE_FROM_CART,
+    isbn13,
+})
+
+const removeFromLikeBook = (isbn13: number) => ({
+    type: REMOVE_FROM_LIKE_BOOK,
+    isbn13,
+})
+
+const plusQuan = (isbn13: number) => ({
+    type: PLUS_QUAN,
+    isbn13,
+})
+
+const minusQuan = (isbn13: number) => ({
+    type: MINUS_QUAN,
+    isbn13,
+})
+
 function* fetchLoadBooks(action: any) {
     const { limit, search } = action.booksInfo;
     console.log(search)
@@ -55,4 +80,4 @@ function* watcherBooks() {
     yield takeEvery(LOAD_BIG_BOOK, fetchBigBook)
 }
 
-export { loadBooks, watcherBooks, setBooks, limitBooks, loadBigBook, addToCart }
+export { loadBooks, watcherBooks, setBooks, limitBooks, loadBigBook, addToCart, likeBook, removeFromCart, removeFromLikeBook, plusQuan, minusQuan }

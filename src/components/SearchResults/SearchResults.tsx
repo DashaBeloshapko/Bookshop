@@ -15,7 +15,6 @@ const SearchResults = () => {
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
-        console.log(params.get('search'));
         dispatch(loadBooks({ limit, search: params.get('search') }))
     }, [limit])
 
