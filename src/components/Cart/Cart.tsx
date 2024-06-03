@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { IStoreStateBooks } from "../../types";
+import { ICart, IStoreStateBooks } from "../../types";
 import './Cart.css'
 import { Link } from "react-router-dom";
-import { minusQuan, plusQuan, removeFromCart } from "../../redux/actionCreators";
+import { clearCart, minusQuan, plusQuan, removeFromCart } from "../../redux/actionCreators";
+import { Button } from "../Button";
 
 const Cart = () => {
     const cartItems = useSelector((state: IStoreStateBooks) => state.books.cart);
@@ -18,6 +19,10 @@ const Cart = () => {
 
     const handleMinusQuan = (isbn13: number) => {
         dispatch(minusQuan(isbn13))
+    }
+
+    const handleCheckout = () => {
+        dispatch(clearCart())
     }
 
     return (
@@ -43,14 +48,26 @@ const Cart = () => {
                                 <button className="cartitem-counter-but" onClick={() => handlePlusQuan(el.isbn13)}>+</button>
                             </div>
                         </div>
-                        <div className="cartitem_price">{el.price}</div>
+                        <div className="cartitem_price">{`$${(+String(el.price).slice(1, 10) * el.quan).toFixed(2)}`}</div>
                         <button className="cartitem-close-but" onClick={() => handleRemoveFromCart(el.isbn13)}></button>
                     </div>)}
             </div>
+            <footer className="cart_footer">
+                <div className="cart_footer-wrap">
+                    <div className="cart_footer-data-wrap">
+                        <h3 className="cart_footer-data">Total:</h3>
+                        <h3 className="cart_footer-data">
+                            {`$${cartItems.reduce((sum, el) => {
+                                return sum = +(sum + +String(el.price).slice(1, 10) * el.quan).toFixed(2)
+                            }, 0)}`}
+                        </h3>
+                    </div>
+                    <Button children="check out" className="checkout-but" onClick={handleCheckout} />
+                </div>
+            </footer>
         </div>
     )
 }
 
 export { Cart }
-
 

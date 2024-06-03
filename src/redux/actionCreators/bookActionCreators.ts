@@ -1,6 +1,6 @@
 import { put, takeEvery } from "redux-saga/effects";
 import { IBigBook, IBook, IBooksInfo, IBooksResponse, ICart, ILIkeBook, } from "../../types";
-import { ADD_TO_CART, LIKE_BOOK, LIMIT_BOOKS, LOAD_BIG_BOOK, LOAD_BOOKS, MINUS_QUAN, PLUS_QUAN, REMOVE_FROM_CART, REMOVE_FROM_LIKE_BOOK, SET_BIG_BOOK, SET_BOOKS } from "../actionTypes";
+import { ADD_TO_CART, CLEAR_CART, LIKE_BOOK, LIMIT_BOOKS, LOAD_BIG_BOOK, LOAD_BOOKS, MINUS_QUAN, PLUS_QUAN, REMOVE_FROM_CART, REMOVE_FROM_LIKE_BOOK, SET_BIG_BOOK, SET_BOOKS, SET_CURRENT_PAGE } from "../actionTypes";
 
 const setBooks = (books: IBook[]) => ({
     type: SET_BOOKS,
@@ -57,12 +57,20 @@ const minusQuan = (isbn13: number) => ({
     isbn13,
 })
 
+const clearCart = () => ({
+    type: CLEAR_CART,
+})
+
+const setCurrentPage = (currentPage: number) => ({
+    type: SET_CURRENT_PAGE,
+    currentPage,
+})
+
 function* fetchLoadBooks(action: any) {
-    const { limit, search } = action.booksInfo;
-    console.log(search)
-    let url = `https://api.itbook.store/1.0/new?limit=${limit}`;
+    const { limit, search, currentPage } = action.booksInfo;
+    let url = `https://api.itbook.store/1.0/new`;
     if (search) {
-        url = `https://api.itbook.store/1.0/search/` + search + `?limit=${limit}`
+        url = `https://api.itbook.store/1.0/search/` + search
     }
     const resp: Response = yield fetch(`${url}`);
     const data: IBooksResponse = yield resp.json();
@@ -80,4 +88,18 @@ function* watcherBooks() {
     yield takeEvery(LOAD_BIG_BOOK, fetchBigBook)
 }
 
-export { loadBooks, watcherBooks, setBooks, limitBooks, loadBigBook, addToCart, likeBook, removeFromCart, removeFromLikeBook, plusQuan, minusQuan }
+export {
+    loadBooks,
+    watcherBooks,
+    setBooks,
+    limitBooks,
+    loadBigBook,
+    addToCart,
+    likeBook,
+    removeFromCart,
+    removeFromLikeBook,
+    plusQuan,
+    minusQuan,
+    clearCart,
+    setCurrentPage,
+}

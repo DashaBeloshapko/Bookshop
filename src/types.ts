@@ -70,8 +70,8 @@ export interface ImageType {
 interface IBook {
     title: string,
     subtitle: string,
-    isbn13: string,
-    price: string,
+    isbn13: number,
+    price: number,
     image: string,
     url?: string,
 }
@@ -82,11 +82,13 @@ interface IBooksState {
     bigBook: IBigBook,
     cart: ICart[],
     likeBook: ILIkeBook[],
+    currentPage: number,
 }
 
 interface IBooksInfo {
     limit: number,
     search?: string | null,
+    currentPage: number,
 }
 
 interface IBooksResponse {
@@ -98,6 +100,7 @@ interface IStoreStateBooks {
     books: IBooksState,
     limit: number,
     cart: ICartState,
+    currentPage: number,
 }
 
 interface IBigBook {

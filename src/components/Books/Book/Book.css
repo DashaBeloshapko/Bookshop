@@ -27,6 +27,7 @@
     font-weight: 700;
     height: 64px;
     margin: 20px 0 8px 0;
+    overflow: hidden;
 }
 
 .book_span {
@@ -35,6 +36,10 @@
     line-height: 24px;
     font-weight: 400;
     font-family: 'Inter Regular';
+    height: 48px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
 }
 
 .book_footer {
@@ -44,7 +49,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .books_footer-price {
@@ -123,7 +128,7 @@
     right: 3px;
 }
 
-.red-heart {
+.black-heart:active {
     background-image: url(./../../../images/сердце\ красное-books\ \(1\).svg);
     width: 24px;
     height: 24px;
@@ -239,7 +244,7 @@
 .bigBook_footer {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-top: 48px;
     margin-bottom: 72px;
 }
@@ -266,6 +271,26 @@
 
 .bigBook-more {
     background-image: url(./../../../images/More-Horizontal-books.svg);
+}
+
+.pag-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.pag-but {
+    border: none;
+    background-color: transparent;
+    color: #313037;
+    font-family: 'BebasNeue';
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.pag-but:hover {
+    font-size: 25px;
 }
 
 @font-face {

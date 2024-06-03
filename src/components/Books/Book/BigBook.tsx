@@ -2,13 +2,17 @@ import { Link, useParams } from "react-router-dom"
 import { Button } from "../../Button"
 import { useDispatch, useSelector } from "react-redux"
 import { ICart, ILIkeBook, IStoreStateBooks } from "../../../types"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { addToCart, likeBook, loadBigBook } from "../../../redux/actionCreators"
 
 const BigBook = () => {
     const dispatch = useDispatch()
     const bigBook = useSelector((state: IStoreStateBooks) => state.books.bigBook)
+    const allBooks = useSelector((state: IStoreStateBooks) => state.books.books)
+    console.log(allBooks)
     const { isbn13 = '' } = useParams();
+    const index = allBooks.findIndex(el => el.isbn13 === bigBook.isbn13)
+    console.log(bigBook.isbn13)
     useEffect(() => {
         dispatch(loadBigBook(isbn13))
     }, [isbn13, dispatch])
@@ -25,7 +29,7 @@ const BigBook = () => {
                     <img src={bigBook.image} className="biBbook_main-image" />
                     <div className="heart-wrap">
                         <button
-                            className="black-heart"
+                            className='black-heart'
                             onClick={() => {
                                 const favouriteBook: ILIkeBook = {
                                     isbn13: bigBook.isbn13,
@@ -34,7 +38,6 @@ const BigBook = () => {
                                     authors: bigBook.authors,
                                     image: bigBook.image,
                                 };
-                                console.log(favouriteBook)
                                 dispatch(likeBook(favouriteBook))
                             }}
                         />
@@ -75,7 +78,6 @@ const BigBook = () => {
                                 image: bigBook.image,
                                 quan: 1,
                             };
-                            console.log(cartItem)
                             dispatch(addToCart(cartItem))
                         }}
                     />
@@ -88,6 +90,10 @@ const BigBook = () => {
                     <div className="bigBook_footer-icon bigBook-facebook"></div>
                     <div className="bigBook_footer-icon bigBook-twitter"></div>
                     <div className="bigBook_footer-icon bigBook-more"></div>
+                </div>
+                <div className="pag-wrap">
+                    <Link to={index === 0 ? `/books` : `/books/${allBooks[index - 1].isbn13}`}><button className="pag-but">Prev</button></Link>
+                    <Link to={index === allBooks.length - 1 ? `/books` : `/books/${allBooks[index + 1].isbn13}`}><button className="pag-but">Next</button></Link>
                 </div>
             </footer>
         </div>

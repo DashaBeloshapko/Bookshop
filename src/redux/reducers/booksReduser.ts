@@ -1,12 +1,11 @@
 
 import { IBigBook, IBook, IBooksState, ICart, ILIkeBook } from "../../types"
-import { likeBook } from "../actionCreators";
-import { ADD_TO_CART, LIKE_BOOK, LIMIT_BOOKS, MINUS_QUAN, PLUS_QUAN, REMOVE_FROM_CART, REMOVE_FROM_LIKE_BOOK, SET_BIG_BOOK, SET_BOOKS } from "../actionTypes"
+import { ADD_TO_CART, CLEAR_CART, LIKE_BOOK, LIMIT_BOOKS, MINUS_QUAN, PLUS_QUAN, REMOVE_FROM_CART, REMOVE_FROM_LIKE_BOOK, SET_BIG_BOOK, SET_BOOKS, SET_CURRENT_PAGE } from "../actionTypes"
 
 const loadCartFromLocalStorage = (): ICart[] => {
     try {
-        const serializedCart = localStorage.getItem('cart');
-        return serializedCart ? JSON.parse(serializedCart) : [];
+        const myCart = localStorage.getItem('cart');
+        return myCart ? JSON.parse(myCart) : [];
     } catch (e) {
         console.warn("Could not load cart from localStorage", e);
         return [];
@@ -15,8 +14,8 @@ const loadCartFromLocalStorage = (): ICart[] => {
 
 const saveCartToLocalStorage = (cart: ICart[]) => {
     try {
-        const serializedCart = JSON.stringify(cart);
-        localStorage.setItem('cart', serializedCart);
+        const myCart = JSON.stringify(cart);
+        localStorage.setItem('cart', myCart);
     } catch (e) {
         console.warn("Could not save cart to localStorage", e);
     }
@@ -24,8 +23,8 @@ const saveCartToLocalStorage = (cart: ICart[]) => {
 
 const loadFavoritesFromLocalStorage = (): ILIkeBook[] => {
     try {
-        const serializedFavorites = localStorage.getItem('favorites');
-        return serializedFavorites ? JSON.parse(serializedFavorites) : [];
+        const myLikes = localStorage.getItem('favorites');
+        return myLikes ? JSON.parse(myLikes) : [];
     } catch (e) {
         console.warn("Could not load favorites from localStorage", e);
         return [];
@@ -34,8 +33,8 @@ const loadFavoritesFromLocalStorage = (): ILIkeBook[] => {
 
 const saveFavoritesToLocalStorage = (favorites: ILIkeBook[]) => {
     try {
-        const serializedFavorites = JSON.stringify(favorites);
-        localStorage.setItem('favorites', serializedFavorites);
+        const myLikes = JSON.stringify(favorites);
+        localStorage.setItem('favorites', myLikes);
     } catch (e) {
         console.warn("Could not save favorites to localStorage", e);
     }
@@ -48,6 +47,7 @@ const initialState = {
     cart: loadCartFromLocalStorage(),
     quan: 1,
     likeBook: loadFavoritesFromLocalStorage(),
+    currentPage: 1,
 }
 
 const booksReduser = (state: IBooksState = initialState, action: any) => {
@@ -126,7 +126,6 @@ const booksReduser = (state: IBooksState = initialState, action: any) => {
         case MINUS_QUAN: {
             const newCart = [...state.cart];
             const index = newCart.findIndex(item => item.isbn13 === action.isbn13);
-            console.log(index)
 
             if (index !== -1) {
                 newCart[index].quan -= 1;
@@ -139,6 +138,19 @@ const booksReduser = (state: IBooksState = initialState, action: any) => {
                 cart: newCart
             });
         }
+        case CLEAR_CART: {
+            saveCartToLocalStorage([])
+            return ({
+                ...state,
+                cart: [],
+            })
+        }
+        case SET_CURRENT_PAGE: {
+            return ({
+                ...state,
+                currentPage: action.currentPage,
+            })
+        }
         default: {
             return state;
         }
@@ -146,4 +158,3 @@ const booksReduser = (state: IBooksState = initialState, action: any) => {
 }
 
 export { booksReduser }
-

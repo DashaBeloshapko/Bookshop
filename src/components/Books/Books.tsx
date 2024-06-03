@@ -3,34 +3,36 @@ import { useEffect } from "react"
 import { Book } from "./Book/Book"
 import { useDispatch, useSelector } from "react-redux"
 import { loadBooks } from "../../redux/actionCreators/bookActionCreators"
-import { IStoreStateBooks } from "../../types"
-
-
-// const getBooksByGrids = (books: IBook[]) => {
-//     const newArr = []
-//     for (let i = 0; i < books.length; i = i + 12) {
-//         newArr.push([books[i], books[i + 1], books[i + 2], books[i + 3], books[i + 4], books[i + 5], books[i + 6], books[i + 7], books[i + 8], books[i + 9], books[i + 10], books[i + 11]].filter(el => !!el))
-//     }
-//     return newArr
-// }
+import { IBook, IStoreStateBooks } from "../../types"
+import { Pagination } from '../Pagination'
 
 const Books = () => {
     const dispatch = useDispatch()
 
     const limit = useSelector((state: IStoreStateBooks) => state.books.limit)
-
     const books = useSelector((state: IStoreStateBooks) => state.books.books)
+    const currentPage = useSelector((state: IStoreStateBooks) => state.books.currentPage)
+    console.log(limit, currentPage, books.length)
 
     useEffect(() => {
-        dispatch(loadBooks({ limit }))
-    }, [limit])
+        dispatch(loadBooks({ limit, currentPage }))
+    }, [limit, currentPage])
 
+    const getNewArr = (books: IBook[]) => {
+        const newArr = []
+        for (let i = currentPage - 1; i < currentPage - 1 + limit; i++) {
+            newArr.push(books[i])
+        }
+        return (newArr.filter(el => !!el))
+    }
+    console.log(getNewArr(books))
     return (
         <div className="books_main-wrap">
             <h1 className="books_main-title">New Releases Books</h1>
             <div className="books_wrap">
-                {books.map((el) => <Book image={el.image} title={el.title} subtitle={el.subtitle} price={el.price} isbn13={el.isbn13} />)}
+                {getNewArr(books).map((el) => <Book image={el.image} title={el.title} subtitle={el.subtitle} price={el.price} isbn13={el.isbn13} />)}
             </div>
+            <Pagination />
         </div>
     )
 }
